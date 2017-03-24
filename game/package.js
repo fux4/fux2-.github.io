@@ -1,5 +1,6 @@
 character.pack={
     standard:'标准',
+    dangan:'弹丸杀',
     shenhua:'神话再临',
     refresh:'界限突破',
     yijiang:'一将成名',
