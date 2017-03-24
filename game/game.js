@@ -18569,6 +18569,52 @@
 				}
 			}
 		},
+		letPlayerWin:function(pl){
+            if(pl.identity=='zhong'){
+                for(var i=0;i<game.players.length;i++){
+                    var mem=game.players[i];
+                    if(mem!=pl&&mem.identity!='zhu'){
+                        mem.die()._triggered=null;
+                    }
+                }
+            }else if(pl.identity=='nei'){
+                var zmem=null;
+                for(var i=0;i<game.players.length;i++){
+                    var mem=game.players[i];
+                    if(mem!=pl){
+                        if(mem.identity=='zhu')
+                            zmem=mem;
+                        else
+                            mem.die()._triggered=null;
+                    }
+                }
+                zmem.die()._triggered=null;
+            }else{
+                for(var i=0;i<game.players.length;i++){
+                    var mem=game.players[i];
+                    if(mem!=pl){
+                        mem.die()._triggered=null;
+                    }
+                }
+            }
+        },
+        cmpName:function(pl,name){
+            if(pl.name1==name) return true;
+            if(pl.name2==name) return true;
+            if(pl.name==name) return true;
+            return false;
+        },
+        playSe:function(fn,dir,sex){
+            if(lib.config.background_speak){
+                if(dir&&sex)
+                    game.playAudio(dir,sex,fn);
+                else if(dir)
+                    game.playAudio(dir,fn);
+                else
+                    game.playAudio('dangan',fn);
+                
+            }
+        },
 		import:function(type,obj){
 			if(type=='extension'){
                 lib.extensionMenu['extension_'+obj.name]={

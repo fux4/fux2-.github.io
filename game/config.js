@@ -132,7 +132,7 @@ window.config={
 	connect_characters:[],
 	connect_cards:[],
 	plays:[],
-	extensions:[],
+	extensions:['弹丸杀'],
 	banned:[],
 	bannedcards:[],
 	bannedpile:{},
